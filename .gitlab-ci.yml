@@ -1,0 +1,33 @@
+image: python:3.9-slim
+
+stages:
+  - lint
+  - test
+  - security
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+cache:
+  paths:
+    - .cache/pip
+
+before_script:
+  - python -m pip install --upgrade pip
+  - pip install flake8 pytest colorama bandit
+
+lint_code:
+  stage: lint
+  script:
+    - flake8 src/scan.py --max-line-length=120
+
+test_scan:
+  stage: test
+  script:
+    - pytest tests/
+
+security_scan:
+  stage: security
+  script:
+    - bandit -r src/ -s B104,B404,B603,B607
+  allow_failure: true

@@ -1,68 +1,88 @@
-## Host Scan
+# Host Scan 🔍
 
 <p align="center">
-  <img src="./Img/Logo.png" height="300px" width="350px">
+  <img src="./docs/images/Logo.png" height="300px" width="350px" alt="Host Scan Logo">
 </p>
 
-**Host Scan** es un script eficiente y versátil que permite detectar qué puertos están abiertos en un sistema remoto, incluso evadiendo firewalls básicos. Con este script, los usuarios pueden realizar rápidamente un escaneo exhaustivo de los puertos de una IP.
+## 📌 Objetivo Técnico
+
+**Host Scan** es una herramienta desarrollada en Python para el análisis eficiente de puertos (TCP/UDP) en sistemas remotos, integrando capacidades de evasión básica de firewalls y concurrencia optimizada mediante ThreadPoolExecutor.
+
+Este proyecto ha sido estructurado bajo los principios de **DevSecOps**, asegurando calidad, escalabilidad y separación estricta entre entornos de investigación privados y versiones públicas.
 
 ---
 
-## ⚙️ Requisitos
+## 🏗️ Arquitectura del Repositorio
 
-- Sistema operativo: Linux (Kali, Parrot OS) o Android con Termux
-- Python 3.8 o superior
+El repositorio sigue una estructura estándar profesional y escalable:
 
----
-
-## 🚀 Instalación
-
-### Kali Linux y Parrot OS
-
-```bash
-git clone https://github.com/Devsebastian44/Host-Scan.git
-cd Host-Scan
-sudo chmod +x setup.sh
-sudo bash setup.sh
-python3 scan.py
 ```
-
-### Termux
-
-```bash
-git clone https://github.com/Devsebastian44/Host-Scan.git
-cd Host-Scan
-chmod +x setup.sh
-bash setup.sh
-python3 scan.py
+📦 Host-Scan
+ ┣ 📂 src/        # Código fuente principal (scan.py)
+ ┣ 📂 tests/      # Pruebas unitarias preparadas para CI/CD
+ ┣ 📂 scripts/    # Scripts de automatización y sanitización (publish_public.ps1, setup.sh)
+ ┣ 📂 configs/    # Configuraciones específicas por entorno
+ ┣ 📂 docs/       # Documentación oficial y diagramas (imágenes)
+ ┣ 📜 .gitlab-ci.yml  # Pipeline para validación, testing y security checks
+ ┗ 📜 README.md   # Documentación principal
 ```
 
 ---
 
-## ▶️ Uso
+## 🛡️ Flujo DevSecOps y Repositorio Dual (GitLab → GitHub)
 
-Ejecuta el script principal:
+El ciclo de vida del desarrollo se divide en dos entornos principales garantizando la seguridad operacional:
 
+1. **GitLab (Private Lab - Source of Truth)**:
+   Contiene el entorno completo de desarrollo funcional, incluyendo pipelines de integración continua (.gitlab-ci.yml), baterías de tests exhaustivos (`tests/`), scripts de automatización no ofuscada y logs reales. En este repositorio ocurren los desarrollos y auditorías primarias de código.
+
+2. **GitHub (Portfolio Público - Sanitizado)**:
+   Sirve estrictamente como portafolio y referencia de código público para mostrar madurez técnica. Carece de componentes delicados, scripts iterativos privados, variables configurables o dependencias inyectables que representen riesgos.
+
+### 🔄 Automatización de la Publicación (`scripts/publish_public.ps1`)
+
+La inyección de la versión pública es gestionada por el script `publish_public.ps1`. Este script actúa como un puente unidireccional (GitLab → GitHub), aplicando **Sanitización Automática**. Sus responsabilidades incluyen:
+- Verificar el estado del código base local.
+- Eliminar la inclusión técnica de áreas críticas (`tests/`, `configs/`, lógica experimental en desarrollo y el mismo CI pipeline de GitLab).
+- Aislar en una rama huérfana temporal de despliegue (`public`).
+- Realizar un push forzado y controlado a la cuenta de GitHub pública minimizando el riesgo de filtración de vectores sensibles u operacionales privados.
+
+---
+
+## ⚙️ Análisis e Integración Continua (CI/CD)
+
+El pipeline de GitLab define 3 fases clave para mantener la pureza del código y el aseguramiento de calidad (Quality Assurance):
+- **Linting:** Revisión estricta de estándares y PEP-8 a través de `flake8`.
+- **Testing:** Validación unitaria básica del core a través de `pytest`.
+- **Security:** Análisis dinámico automatizado para detectar debilidades de código con `bandit`.
+
+---
+
+## 🚀 Uso del Escáner (Entorno Controlado)
+
+### Requisitos Mínimos
+- Entorno Linux (Debian, Arch o derivados) o Android (Termux).
+- Python 3.8+ instalado.
+
+### Instalación Rápida
 ```bash
-python3 scan.py
+sudo bash scripts/setup.sh
+```
+
+### Ejecución
+```bash
+python3 src/scan.py
 ```
 
 <p align="center">
-  <img src="./Img/Captura1.png">
-</p>
-
-<p align="center">
-  <img src="./Img/Captura2.jpg">
+  <img src="./docs/images/Captura1.png" alt="Paso 1 del Script">
 </p>
 
 ---
 
-## 📜 Licencia
+## ⚖️ Aviso Ético y Responsabilidad
 
-Este proyecto está bajo la licencia Apache 2.0. Puedes usarlo libremente con fines educativos y de investigación.
-
----
-
-## ⚠️ Aviso
-
-Este script ha sido desarrollado únicamente con fines **educativos y de investigación en ciberseguridad**. El uso indebido de este material puede ser **ilegal**. No me responsabilizo del mal uso ni de los daños que puedan ocasionarse por su ejecución.
+> [!WARNING]
+> Este proyecto (`Host Scan`) ha sido concebido y distribuido primordialmente con fines de **investigación, auditoría autorizada y usos educativos en ciberseguridad**. La ejecución de software para escaneo, recolección de huellas cibernéticas o mapeo de redes sin autorización explícita conformada y documentada, constituye una actividad intrusiva, punible y potencialmente ilegal o criminal bajo varias legislaciones a nivel mundial.
+>
+> **Toda actividad debe poseer un alcance legal claramente definido. El desarrollador no asume responsabilidad civil, formativa o punitiva derivada de las acciones y consecuencias suscitadas por el uso del software.**
