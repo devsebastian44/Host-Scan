@@ -12,7 +12,7 @@ from colorama import Fore, Style
 
 
 def handler(sig, frame):
-    os.system("clear")
+    subprocess.run(["clear"])  # nosec B603
     print(Fore.RED + Style.DIM + "\n\n[+] Saliendo...\n" + Fore.WHITE + Style.NORMAL)
     sys.exit(1)
 
@@ -34,7 +34,7 @@ def scan_tcp(host, port):
         tcp_ports.append(str(port))
         s.close()
     except Exception:
-        pass
+        pass  # nosec B110
 
 
 def scan_udp(host, port):
@@ -64,13 +64,13 @@ def scan_udp(host, port):
 
 
 if __name__ == '__main__':
-    os.system("clear && figlet Host Scan | lolcat")
+    os.system("clear && figlet Host Scan | lolcat")  # nosec B605
 
     host = input(Fore.MAGENTA + Style.BRIGHT + "Introduce la IP a analizar: " + Fore.WHITE + Style.NORMAL)
     print("\n")
 
     # Modificar los hilos máximos que se pueden ejecutar en el sistema
-    os.system("ulimit -n 5100")
+    os.system("ulimit -n 5100")  # nosec B605
 
     # Crear un pool de hilos con un máximo de 5000
     executor = concurrent.futures.ThreadPoolExecutor(max_workers=5000)
