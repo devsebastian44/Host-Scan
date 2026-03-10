@@ -30,28 +30,28 @@ graph TD
 
 ## 🛡️ 2. DevSecOps & Pipeline Flow
 
-Demonstration of how the laboratory code separates into public portfolio and private execution.
+Demonstration of how the laboratory code separates into a pristine portfolio showcase and a technical execution lab.
 
 ```mermaid
 sequenceDiagram
     participant Dev local
-    participant GitLab (Private)
+    participant GitLab (Public Lab)
     participant PowerShell (Sanitization)
-    participant GitHub (Public)
+    participant GitHub (Portfolio)
 
-    Dev local->>GitLab (Private): Push full code (tests, configs, scripts, pipeline)
+    Dev local->>GitLab (Public Lab): Push full code (tests, configs, scripts, pipeline)
     rect rgb(30, 30, 60)
-    Note over GitLab (Private): CI/CD Execution
-    GitLab (Private)->>GitLab (Private): flake8 (Linting)
-    GitLab (Private)->>GitLab (Private): pytest (Automated testing)
-    GitLab (Private)->>GitLab (Private): bandit (Static security check - SAST)
+    Note over GitLab (Public Lab): CI/CD Execution
+    GitLab (Public Lab)->>GitLab (Public Lab): flake8 (Linting)
+    GitLab (Public Lab)->>GitLab (Public Lab): pytest (Automated testing)
+    GitLab (Public Lab)->>GitLab (Public Lab): bandit (Static security check - SAST)
     end
     
     Dev local->>PowerShell (Sanitization): Runs `publish_public.ps1`
     Note over PowerShell (Sanitization): Orchestration started on branch 'main'
     PowerShell (Sanitization)->>PowerShell (Sanitization): Create detached branch 'public'
     PowerShell (Sanitization)->>PowerShell (Sanitization): git rm --cached 'tests/', 'configs/', 'scripts/', '.gitlab-ci.yml'
-    PowerShell (Sanitization)->>GitHub (Public): Force push branch public:main (Sanitized code)
+    PowerShell (Sanitization)->>GitHub (Portfolio): Force push branch public:main (Sanitized code)
     PowerShell (Sanitization)->>Dev local: Return to branch 'main' securely
 ```
 

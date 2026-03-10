@@ -1,8 +1,11 @@
 # Host Scan 🔍
 
-<p align="center">
-  <img src="./docs/images/Logo.png" height="300px" width="350px" alt="Host Scan Logo">
-</p>
+![Python](https://img.shields.io/badge/Python-3.9+-blue?logo=python&logoColor=white)
+![GitLab](https://img.shields.io/badge/GitLab-Repository-orange?logo=gitlab)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+![Status](https://img.shields.io/badge/Status-Stable-brightgreen)
+![Network](https://img.shields.io/badge/Type-Network%20Scanner-blue)
+![Pentesting](https://img.shields.io/badge/Use-Pentesting-darkred)
 
 ## 📌 Objetivo Técnico
 
@@ -31,13 +34,13 @@ El repositorio sigue una estructura estándar profesional y escalable:
 
 ## 🛡️ Flujo DevSecOps y Repositorio Dual (GitLab → GitHub)
 
-El ciclo de vida del desarrollo se divide en dos entornos principales garantizando la seguridad operacional:
+El ciclo de vida del desarrollo se divide en dos entornos principales, **ambos de carácter público**, pero con objetivos radicalmente diferentes para garantizar la presentación y seguridad operacional:
 
-1. **GitLab (Private Lab - Source of Truth)**:
-   Contiene el entorno completo de desarrollo funcional, incluyendo pipelines de integración continua (.gitlab-ci.yml), baterías de tests exhaustivos (`tests/`), scripts de automatización no ofuscada y logs reales. En este repositorio ocurren los desarrollos y auditorías primarias de código.
+1. **GitLab (Technical Lab - Source of Truth)**:
+   Actúa como el laboratorio técnico y de experimentación. Contiene el entorno completo de desarrollo funcional, incluyendo pipelines de integración continua (.gitlab-ci.yml), baterías de tests exhaustivos (`tests/`), scripts de automatización no ofuscada, y pruebas de concepto. En este repositorio ocurren los desarrollos, integraciones y auditorías primarias de código. Es el reflejo crudo del proceso de ingeniería.
 
-2. **GitHub (Portfolio Público - Sanitizado)**:
-   Sirve estrictamente como portafolio y referencia de código público para mostrar madurez técnica. Carece de componentes delicados, scripts iterativos privados, variables configurables o dependencias inyectables que representen riesgos.
+2. **GitHub (Portfolio Sanitizado - Showcase)**:
+   Sirve estrictamente como portafolio y escaparate curado para mostrar madurez técnica a reclutadores o clientes. Carece de componentes de laboratorio, scripts iterativos (`scripts/`), configuraciones (`configs/`), o flujos de CI/CD subyacentes. Es una versión esterilizada y directa al punto que muestra el núcleo del proyecto.
 
 ### 🔄 Automatización de la Publicación (`scripts/publish_public.ps1`)
 
@@ -73,10 +76,6 @@ sudo bash scripts/setup.sh
 ```bash
 python3 src/scan.py
 ```
-
-<p align="center">
-  <img src="./docs/images/Captura1.png" alt="Paso 1 del Script">
-</p>
 
 ---
 
