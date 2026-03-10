@@ -61,6 +61,15 @@ El pipeline de GitLab define 3 fases clave para mantener la pureza del código y
 
 ---
 
+
+## 🚀 Instalación y Acceso
+
+> [!IMPORTANT]
+> El repositorio completo con todo el código funcional está disponible en **GitLab** para acceso completo.
+
+https://gitlab.com/group-cybersecurity-lab/Host-Scan.git
+
+
 ## 🚀 Uso del Escáner (Entorno Controlado)
 
 ### Requisitos Mínimos
