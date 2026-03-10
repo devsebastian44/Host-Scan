@@ -105,6 +105,10 @@ if __name__ == '__main__':
         udp_ports_str = ",".join(udp_ports)
         # Ejecutar el comando xclip con los puertos UDP como entrada estándar
         subprocess.run(["xclip", "-sel", "clip"], input=udp_ports_str.encode(), check=True)
-        print(Fore.LIGHTGREEN_EX + Style.BRIGHT + "\n[+] ¡Puertos UDP copiados al portapapeles!\n" + Fore.WHITE + Style.NORMAL)
+        print(
+            Fore.LIGHTGREEN_EX + Style.BRIGHT +
+            "\n[+] ¡Puertos UDP copiados al portapapeles!\n" +
+            Fore.WHITE + Style.NORMAL
+        )
     else:
         print(Fore.RED + Style.DIM + "\n[-] No se copian los puertos UDP\n" + Style.NORMAL + Fore.WHITE)
