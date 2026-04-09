@@ -40,7 +40,7 @@ trap 'int_handler' INT
    case $opcion in
 
            1) echo
-           sudo apt-get update && sudo apt install -y python3-pip xclip lolcat figlet && python3 -m pip install --upgrade colorama;;
+           sudo apt-get update && sudo apt install -y python3-pip xclip lolcat figlet && python3 -m pip install --upgrade -r configs/requirements.txt;;
 
            2) echo
            apt-get update
@@ -48,7 +48,7 @@ trap 'int_handler' INT
            pkg install xclip 
            pip install lolcat 
            pkg install figlet
-           pip install colorama
+           pip install -r configs/requirements.txt
            sleep 1.5;;
 
            3) echo
