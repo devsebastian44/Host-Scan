@@ -3,7 +3,7 @@
 # Sincronización Segura: GitLab (Completo) -> GitHub (Sanitizado)
 # =============================================================================
 
-Write-Host "[*] Iniciando sincronización profesional de Keylogger..." -ForegroundColor Cyan
+Write-Host "[*] Iniciando sincronización profesional de Host-Scan..." -ForegroundColor Cyan
 
 # 1. Validaciones Iniciales (Pre-vuelo)
 $currentBranch = git rev-parse --abbrev-ref HEAD
@@ -35,7 +35,7 @@ git checkout -B public main
 Write-Host "[*] Aplicando filtros de seguridad DevSecOps..." -ForegroundColor Cyan
 # Eliminamos lo que es exclusivo del laboratorio privado
 git rm -r --cached tests/ -f 2>$null
-git rm -r --cached configs/ -f 2>$null
+git rm --cached configs/requirements-dev.txt -f 2>$null
 git rm -r --cached scripts/ -f 2>$null
 git rm --cached .gitlab-ci.yml -f 2>$null
 
