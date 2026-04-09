@@ -81,14 +81,17 @@ sudo bash scripts/setup.sh
 git clone https://github.com/devsebastian44/Host-Scan.git
 cd Host-Scan
 
-# 2. Crear entorno virtual e instalar dependencias
+# 2. Crear entorno virtual
 python3 -m venv venv
 source venv/bin/activate
 
-# 3. Instalar dependencias
+# 3. Instalar dependencias base
 pip install -r configs/requirements.txt
 
-# 4. Instalar nmap en el sistema (si aplica)
+# 4. (Opcional) Instalar dependencias para desarrollo/testing
+pip install -r configs/requirements-dev.txt
+
+# 5. Instalar nmap en el sistema (si aplica)
 sudo apt install nmap        # Debian/Ubuntu
 pkg install nmap             # Termux/Android
 ```
