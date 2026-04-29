@@ -1,7 +1,6 @@
 # Host Scan
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-3776AB?style=flat&logo=python&logoColor=white)
-![Concurrencia](https://img.shields.io/badge/Concurrencia-ThreadPoolExecutor-FF6F00?style=flat&logo=python&logoColor=white)
 ![Scope](https://img.shields.io/badge/Scope-OSINT%20%7C%20Pentesting-8B0000?style=flat&logo=hackthebox&logoColor=white)
 ![Bandit](https://img.shields.io/badge/SAST-Bandit-FF6F00?style=flat&logo=python&logoColor=white)
 ![Pytest](https://img.shields.io/badge/Testing-Pytest-0A9EDC?style=flat&logo=pytest&logoColor=white)
